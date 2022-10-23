@@ -35,6 +35,25 @@ $routes->get('/', 'Home::index');
 $routes->post('/auth', 'Home::auth');
 $routes->get('/logout', 'Home::logout');
 $routes->get('dashboard', 'Auth::index', ['filter' => 'auth']);
+
+$routes->get('kriteria', 'Kriteria::kriteria', ['filter' => 'auth']);
+$routes->get('add_kriteria', 'Kriteria::add', ['filter' => 'auth']);
+$routes->add('create_kriteria', 'Kriteria::create', ['filter' => 'auth']);
+$routes->get('detil_kriteria/(:any)', 'Kriteria::detil_kriteria/$1', ['filter' => 'auth']);
+$routes->add('update_kriteria/(:any)', 'Kriteria::update/$1', ['filter' => 'auth']);
+$routes->add('destroy_kriteria/(:any)', 'Kriteria::destroy/$1', ['filter' => 'auth']);
+
+$routes->get('sub_kriteria', 'Subkriteria::index', ['filter' => 'auth']);
+
+
+$routes->get('karyawan', 'Karyawan::index', ['filter' => 'auth']);
+$routes->get('add_karyawan', 'Karyawan::add', ['filter' => 'auth']);
+$routes->add('create_karyawan', 'Karyawan::create', ['filter' => 'auth']);
+$routes->get('detil_karyawan/(:any)', 'Karyawan::detil_karyawan/$1', ['filter' => 'auth']);
+$routes->add('update_karyawan/(:any)', 'Karyawan::update/$1', ['filter' => 'auth']);
+$routes->add('destroy_karayawan/(:any)', 'Karyawan::destroy/$1', ['filter' => 'auth']);
+
+//users
 $routes->get('dashboard/users', 'Auth::users', ['filter' => 'auth']);
 
 /*

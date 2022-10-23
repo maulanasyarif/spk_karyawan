@@ -19,8 +19,6 @@ class Home extends BaseController
         $email = $this->request->getpost('email');
         $password = $this->request->getpost('password');
         $data = $model->where('email', $email)->first();
-        // var_dump($data['activation_code']);
-        // die;
         if ($data) {
             $pass = $data['password'];
             $verify_pass = password_verify($password, $pass);
@@ -32,9 +30,6 @@ class Home extends BaseController
                     'logged_in'     => TRUE
                 ];
                 $session->set($ses_data);
-                // var_dump($ses_data);
-                // die;
-                // return view('/admin/dashboard');
                 if ($data['activation_code'] == 1) {
                     return redirect()->to('/dashboard');
                 } else {

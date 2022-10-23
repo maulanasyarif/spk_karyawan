@@ -246,42 +246,31 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
             <ul class="nav flex-column" id="nav_accordion">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Link name </a>
+                    <a class="nav-link" href="#">Dashboard </a>
                 </li>
                 <li class="nav-item has-submenu">
-                    <a class="nav-link" href="#"> Submenu links <i class="bi small bi-caret-down-fill"></i> </a>
+                    <a class="nav-link" href="#">Kriteria <i class="bi small bi-caret-down-fill"></i> </a>
                     <ul class="submenu collapse">
-                        <li><a class="nav-link" href="#">Submenu item 1 </a></li>
-                        <li><a class="nav-link" href="#">Submenu item 2 </a></li>
-                        <li><a class="nav-link" href="#">Submenu item 3 </a> </li>
+                        <li><a class="nav-link" href="<?= base_url('kriteria'); ?>">Kriteria </a></li>
+                        <li><a class="nav-link" href="<?= base_url('sub_kriteria'); ?>">Subkriteria</a></li>
                     </ul>
                 </li>
                 <li class="nav-item has-submenu">
-                    <a class="nav-link" href="#"> More menus <i class="bi small bi-caret-down-fill"></i> </a>
-                    <ul class="submenu collapse">
-                        <li><a class="nav-link" href="#">Submenu item 4 </a></li>
+                    <a class="nav-link" href="<?= base_url('karyawan'); ?>">Karyawan <i class="bi small bi-caret-down-fill"></i> </a>
+                    <!-- <ul class="submenu collapse"> -->
+                    <!-- <li><a class="nav-link" href="#">Submenu item 4 </a></li>
                         <li><a class="nav-link" href="#">Submenu item 5 </a></li>
                         <li><a class="nav-link" href="#">Submenu item 6 </a></li>
                         <li><a class="nav-link" href="#">Submenu item 7 </a></li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <li class="nav-item has-submenu">
-                    <a class="nav-link" href="#"> Another submenus <i class="bi small bi-caret-down-fill"></i> </a>
+                    <a class="nav-link" href="#">Perhitungan <i class="bi small bi-caret-down-fill"></i> </a>
                     <ul class="submenu collapse">
-                        <li><a class="nav-link" href="#">Submenu item 8 </a></li>
-                        <li><a class="nav-link" href="#">Submenu item 9 </a></li>
-                        <li><a class="nav-link" href="#">Submenu item 10 </a></li>
-                        <li><a class="nav-link" href="#">Submenu item 11 </a></li>
+                        <li><a class="nav-link" href="#">Alternatif</a></li>
+                        <li><a class="nav-link" href="#">Perbandingan</a></li>
+                        <li><a class="nav-link" href="#">Hasil Perhtungan </a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Demo link </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Menu item </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Something </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('logout') ?>"> Logout </a>
