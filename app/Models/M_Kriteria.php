@@ -14,7 +14,7 @@ class M_Kriteria extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kriteria', 'nama_kriteria'];
+    protected $allowedFields    = ['id_kriteria', 'nama_kriteria', 'bobot_kriteria'];
 
     // public function Subkriteria()
     // {

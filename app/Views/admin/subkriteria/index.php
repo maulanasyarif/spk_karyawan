@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <td scope="col" style="width: 5%; text-align: center;">No</td>
+                    <td scope="col">Nama Kriteria</td>
                     <td scope="col">Sub Kriteria</td>
                     <td scope="col">Nilai</td>
                     <td scope="col" style="width: 15%; text-align: center;">Action</td>
@@ -25,10 +26,11 @@
 
                     <tr>
                         <td style="width: 5%; text-align: center;"><?php echo ++$start ?></td>
+                        <td><?php echo $s['nama_kriteria'] ?></td>
                         <td><?php echo $s['nama_subkriteria'] ?></td>
                         <td>
                             <?php echo
-                            $s['id_nilai'] == 1 ? 'Sangat Baik'
+                            $s['bobot_subkriteria'] == 1 ? 'Sangat Baik'
                                 : ($s['id_nilai'] == 2 ? 'Cukup'
                                     : ($s['id_nilai'] == 3 ? 'Baik'
                                         : ($s['id_nilai'] == 4 ? 'Kurang'
@@ -48,11 +50,10 @@
                     </tr>
 
                 <?php } ?>
+
             </tbody>
         </table>
-        <div class="d-flex justify-content-end">
-            <?= $pager->Links() ?>
-        </div>
+
     </div>
 </div>
 

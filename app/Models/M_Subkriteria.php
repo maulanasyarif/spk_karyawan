@@ -4,6 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
+
 class M_Subkriteria extends Model
 {
     protected $DBGroup          = 'default';
@@ -15,39 +16,38 @@ class M_Subkriteria extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'id_subkriteria', 'nama_subkriteria', 'id_kriteria', 'tipe', 'nilai_minimum', 'nilai_maksimum', 'op_min', 'op_max', 'id_nilai'
+        'id_subkriteria', 'nama_subkriteria', 'kriteria_id', 'bobot_subkriteria',
+        // 'tipe', 'nilai_minimum', 'nilai_maksimum', 'op_min', 'op_max', 'id_nilai'
     ];
 
-    function index()
-    {
-        // $query = " SELECT
-        //             subkriteria.id_subkriteria,
-        //             subkriteria.nama_subkriteria,
-        //             subkriteria.id_kriteria,
-        //             subkriteria.tipe,
-        //             subkriteria.nilai_minimum,
-        //             subkriteria.nilai_maksimum,
-        //             subkriteria.op_min,
-        //             subkriteria.op_max,
-        //             subkriteria.id_nilai,
-        //             kriteria.id_kriteria,
-        //             kriteria.nama_kriteria,
-        //             nilai_kategori.id_nilai,
-        //             nilai_kategori.nama_nilai
-        //             FROM
-        //             subkriteria
-        //             INNER JOIN nilai_kategori ON nilai_kategori.id_nilai = subkriteria.id_nilai
-        //             INNER JOIN kriteria ON kriteria.id_kriteria = subkriteria.id_kriteria";
-        // return $this->db->query($query);
-    }
+    // function index()
+    // {
+    // $query = " SELECT
+    //             subkriteria.id_subkriteria,
+    //             subkriteria.nama_subkriteria,
+    //             subkriteria.id_kriteria,
+    //             subkriteria.tipe,
+    //             subkriteria.nilai_minimum,
+    //             subkriteria.nilai_maksimum,
+    //             subkriteria.op_min,
+    //             subkriteria.op_max,
+    //             subkriteria.id_nilai,
+    //             kriteria.id_kriteria,
+    //             kriteria.nama_kriteria,
+    //             nilai_kategori.id_nilai,
+    //             nilai_kategori.nama_nilai
+    //             FROM
+    //             subkriteria
+    //             INNER JOIN nilai_kategori ON nilai_kategori.id_nilai = subkriteria.id_nilai
+    //             INNER JOIN kriteria ON kriteria.id_kriteria = subkriteria.id_kriteria";
+    // return $this->db->query($query);
+    // }
 
     public function Kriteria()
     {
-        // return $this->belongsTo('Kriteria', 'App\Models\M_Kriteria');
-        $query =  $this->db->table('subkriteria')
-            ->join('kriteria', 'subkriteria.id_kriteria = kriteria.id_kriteria')
-            ->get();
-        return $query;
+        return $this->db->table('kriteria as t1')
+            ->join('subkriteria as t2', 't1.id_kriteria = t2.kriteria_id', 'LEFT')
+            ->get()->getResultArray();
     }
 
     // Dates

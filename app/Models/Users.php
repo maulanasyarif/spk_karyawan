@@ -40,6 +40,7 @@ class Users extends Model
     protected $beforeInsert   = [];
     protected $afterInsert    = [];
     protected $beforeUpdate   = [];
+    
     protected $afterUpdate    = [];
     protected $beforeFind     = [];
     protected $afterFind      = [];
