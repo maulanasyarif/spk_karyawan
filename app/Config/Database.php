@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'spk_karyawan',
+        'database' => 'spk_sekolah',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

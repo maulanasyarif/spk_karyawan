@@ -28,14 +28,14 @@ class Kriteria extends BaseController
         $session = session();
         $validation =  \Config\Services::validation();
         $validation->setRules(['nama_kriteria' => 'required']);
-        $validation->setRules(['bobot_kriteria' => 'required']);
+        // $validation->setRules(['bobot_kriteria' => 'required']);
         $isDataValid = $validation->withRequest($this->request)->run();
 
         if ($isDataValid) {
             $kriteria = new M_Kriteria();
             $kriteria->insert([
                 "nama_kriteria" => $this->request->getPost('nama_kriteria'),
-                "bobot_kriteria" => $this->request->getPost('bobot_kriteria'),
+                // "bobot_kriteria" => $this->request->getPost('bobot_kriteria'),
             ]);
 
             $session->setFlashdata('msg', 'Data Berhasil Ditambah');
@@ -65,14 +65,14 @@ class Kriteria extends BaseController
         $validation->setRules([
             'id_kriteria' => 'required',
             'nama_kriteria' => 'required',
-            'bobot_kriteria' => 'required',
+            // 'bobot_kriteria' => 'required',
         ]);
 
         $isDataValid = $validation->withRequest($this->request)->run();
         if ($isDataValid) {
             $kriteria->update($id, [
                 "nama_kriteria" => $this->request->getPost('nama_kriteria'),
-                "bobot_kriteria" => $this->request->getPost('bobot_kriteria'),
+                // "bobot_kriteria" => $this->request->getPost('bobot_kriteria'),
             ]);
 
             $session->setFlashdata('msg', 'Data Berhasil Diubah');

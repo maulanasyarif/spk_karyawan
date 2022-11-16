@@ -246,7 +246,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
             <ul class="nav flex-column" id="nav_accordion">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard </a>
+                    <a class="nav-link" href="<?= base_url('dashboard'); ?>">Dashboard </a>
                 </li>
                 <li class="nav-item has-submenu">
                     <a class="nav-link" href="#">Kriteria <i class="bi small bi-caret-down-fill"></i> </a>

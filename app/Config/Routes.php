@@ -44,6 +44,11 @@ $routes->add('update_kriteria/(:any)', 'Kriteria::update/$1', ['filter' => 'auth
 $routes->add('destroy_kriteria/(:any)', 'Kriteria::destroy/$1', ['filter' => 'auth']);
 
 $routes->get('sub_kriteria', 'Subkriteria::index', ['filter' => 'auth']);
+$routes->get('add_sub_kriteria', 'Subkriteria::add', ['filter' => 'auth']);
+$routes->add('create_sub_kriteria', 'Subkriteria::create', ['filter' => 'auth']);
+$routes->get('detil_sub_kriteria/(:any)', 'Subkriteria::edit/$1', ['filter' => 'auth']);
+$routes->add('update_sub_kriteria/(:any)', 'Subkriteria::update/$1', ['filter' => 'auth']);
+$routes->add('destroy_sub_kriteria/(:any)', 'Subkriteria::destroy/$1', ['filter' => 'auth']);
 
 
 $routes->get('karyawan', 'Karyawan::index', ['filter' => 'auth']);

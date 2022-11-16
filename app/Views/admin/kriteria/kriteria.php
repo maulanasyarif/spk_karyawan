@@ -12,7 +12,7 @@
                 <tr>
                     <td scope="col" style="width: 5%; text-align: center;">No</td>
                     <td scope="col">Nama Kriteria</td>
-                    <td scope="col">Bobot Kriteria</td>
+                    <!-- <td scope="col">Bobot Kriteria</td> -->
                     <td scope="col" style="width: 20%; text-align: center;">Action</td>
                 </tr>
             </thead>
@@ -24,7 +24,7 @@
                     <tr>
                         <td style="width: 5%; text-align: center;"><?php echo ++$start ?></td>
                         <td><?php echo $k['nama_kriteria'] ?></td>
-                        <td><?php echo $k['bobot_kriteria'] ?></td>
+                        <!-- <td><?php echo $k['bobot_kriteria'] ?></td> -->
                         <td style="text-align:center" width="300px">
                             <?php
                             echo anchor(site_url('detil_kriteria/' . $k['id_kriteria']), 'Edit', array('class' => 'btn edit btn-sm btn-warning'));

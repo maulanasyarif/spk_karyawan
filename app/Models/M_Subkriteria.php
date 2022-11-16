@@ -16,8 +16,8 @@ class M_Subkriteria extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'id_subkriteria', 'nama_subkriteria', 'kriteria_id', 'bobot_subkriteria',
-        // 'tipe', 'nilai_minimum', 'nilai_maksimum', 'op_min', 'op_max', 'id_nilai'
+        'id_subkriteria', 'nama_subkriteria', 'kriteria_id', 'bobot_subkriteria', 'id_kriteria',
+        'tipe', 'nilai_minimum', 'nilai_maksimum', 'op_min', 'op_max', 'id_nilai'
     ];
 
     // function index()
@@ -46,7 +46,8 @@ class M_Subkriteria extends Model
     public function Kriteria()
     {
         return $this->db->table('kriteria as t1')
-            ->join('subkriteria as t2', 't1.id_kriteria = t2.kriteria_id', 'LEFT')
+            // ->join('subkriteria as t2', 't1.id_kriteria = t2.kriteria_id', 'LEFT')
+            ->join('subkriteria as t2', 't1.id_kriteria = t2.id_kriteria', 'LEFT')
             ->get()->getResultArray();
     }
 

@@ -6,7 +6,7 @@
     <?php if (session()->getFlashdata('msg')) : ?>
         <div class="alert alert-success"><?= session()->getFlashdata('msg') ?></div>
     <?php endif; ?>
-    <a class="btn btn-sm btn-primary add" href="<?= base_url('add_kriteria') ?>">Tambah Kriteria</a>
+    <a class="btn btn-sm btn-primary add" href="<?= base_url('add_sub_kriteria') ?>">Tambah Subkriteria</a>
     <div class=" responsive mt-3">
         <table id="kriteria" class="table table-bordered">
             <thead>
@@ -23,14 +23,13 @@
                 <?php
                 foreach ($subkriteria as $s) {
                 ?>
-
                     <tr>
                         <td style="width: 5%; text-align: center;"><?php echo ++$start ?></td>
                         <td><?php echo $s['nama_kriteria'] ?></td>
                         <td><?php echo $s['nama_subkriteria'] ?></td>
                         <td>
                             <?php echo
-                            $s['bobot_subkriteria'] == 1 ? 'Sangat Baik'
+                            $s['id_nilai'] == 1 ? 'Sangat Baik'
                                 : ($s['id_nilai'] == 2 ? 'Cukup'
                                     : ($s['id_nilai'] == 3 ? 'Baik'
                                         : ($s['id_nilai'] == 4 ? 'Kurang'
@@ -42,9 +41,9 @@
                         </td>
                         <td style="text-align:center" width="300px">
                             <?php
-                            echo anchor(site_url('detil_kriteria/' . $k['id_kriteria']), 'Edit', array('class' => 'btn edit btn-sm btn-warning'));
+                            echo anchor(site_url('detil_sub_kriteria/' . $s['id_subkriteria']), 'Edit', array('class' => 'btn edit btn-sm btn-warning'));
                             echo '  ';
-                            echo anchor(site_url('destroy_kriteria/' . $k['id_kriteria']), 'Delete', array('class' => 'btn btn-sm btn-danger', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"'));
+                            echo anchor(site_url('destroy_sub_kriteria/' . $s['id_subkriteria']), 'Delete', array('class' => 'btn btn-sm btn-danger', 'onclick="javasciprt: return confirm(\'Are You Sure ?\')"'));
                             ?>
                         </td>
                     </tr>

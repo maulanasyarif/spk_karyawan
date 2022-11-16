@@ -62,7 +62,7 @@
 
 # database.default.hostname = localhost
 
-# database.default.database = spk_karyawan
+# database.default.database = spk_sekolah
 
 # database.default.username = root
 
