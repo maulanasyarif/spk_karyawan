@@ -16,10 +16,13 @@ class M_Kriteria extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['id_kriteria', 'nama_kriteria', 'bobot_kriteria'];
 
-    // public function Subkriteria()
-    // {
-    //     return $this->hasMany('Subkriteria', 'App\Models\M_Subkriteria');
-    // }
+    public function Subkriteria($id)
+    {
+        return $this->db()->table('kriteria AS K')
+            ->join('subkriteria AS S', 'K.id_kriteria = S.id_kriteria', 'LEFT')
+            ->where('S.id_kriteria', $id)
+            ->get()->getResultArray();
+    }
 
     // Dates
     protected $useTimestamps = false;

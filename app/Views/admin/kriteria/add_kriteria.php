@@ -3,7 +3,7 @@
 
 <div class="mt-5 d-flex">
     <div class="col-md-10">
-        <div class="card shadow-sm">
+        <div class="card shadow-lg">
             <div class="card-header">
                 <span>Tambah Kriteria</span>
             </div>
@@ -19,8 +19,8 @@
                         <input type="number" class="form-control" id="bobot_kriteria" aria-describedby="" name="bobot_kriteria">
                     </div> -->
                     <div class="uk-button-group">
-                        <a type=" submit" class="btn btn-sm btn-warning" href="<?= base_url('kriteria') ?>">Kembali</a>
-                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                        <a type=" submit" class="btn btn-sm btn-outline-warning" href="<?= base_url('kriteria') ?>">Kembali</a>
+                        <button type="submit" class="btn btn-sm btn-outline-primary">Submit</button>
                     </div>
                 </form>
             </div>

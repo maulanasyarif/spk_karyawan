@@ -10,12 +10,11 @@
         <div class="card-body">
             <a class="btn btn-sm btn-primary add" href="<?= base_url('add_sub_kriteria') ?>">Tambah Subkriteria</a>
             <div class=" responsive mt-3">
-                <table id="kriteria" class="table table-bordered">
+                <table id="kriteria" class="table table-bordered table-striped">
                     <thead class="table-dark">
                         <tr>
                             <td scope="col" style="width: 5%; text-align: center;">No</td>
-                            <td scope="col">Nama Kriteria</td>
-                            <td scope="col">Sub Kriteria</td>
+                            <td scope="col">Nama Subkriteria</td>
                             <td scope="col">Nilai</td>
                             <td scope="col" style="width: 15%; text-align: center;">Action</td>
                         </tr>
@@ -27,8 +26,7 @@
                         ?>
                             <tr>
                                 <td style="width: 5%; text-align: center;"><?php echo ++$start ?></td>
-                                <td><?php echo $s['nama_kriteria'] ?></td>
-                                <td><?php echo $s['nama_subkriteria'] ?></td>
+                                <td><?php echo $s['nama_kriteria'] . ' ' . $s['nama_subkriteria'] ?></td>
                                 <td>
                                     <?php echo
                                     $s['id_nilai'] == 1 ? 'Sangat Baik'

@@ -42,6 +42,7 @@ $routes->add('create_kriteria', 'Kriteria::create', ['filter' => 'auth']);
 $routes->get('detil_kriteria/(:any)', 'Kriteria::detil_kriteria/$1', ['filter' => 'auth']);
 $routes->add('update_kriteria/(:any)', 'Kriteria::update/$1', ['filter' => 'auth']);
 $routes->add('destroy_kriteria/(:any)', 'Kriteria::destroy/$1', ['filter' => 'auth']);
+$routes->get('sub_kri/(:any)', 'Kriteria::subkriteria/$1', ['filter' => 'auth']);
 
 $routes->get('sub_kriteria', 'Subkriteria::index', ['filter' => 'auth']);
 $routes->get('add_sub_kriteria', 'Subkriteria::add', ['filter' => 'auth']);

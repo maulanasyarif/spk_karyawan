@@ -53,7 +53,7 @@
                         </select>
                     </div>
                     <div class="uk-button-group">
-                        <a type=" submit" class="btn btn-sm btn-warning" href="<?= base_url('sub_kriteria') ?>">Kembali</a>
+                        <button type="button" class="btn btn-sm btn-warning back">Kembali</button>
                         <button type="submit" class="btn btn-sm btn-primary">Submit</button>
                     </div>
                 </form>
@@ -89,6 +89,10 @@
             $('.nilai').addClass('d-none');
             $('[name=nama_subkriteria').val('<?= $detil['nama_subkriteria'] ?>')
         }
+    })
+
+    $(document).on('click', '.back', function() {
+        history.go(-1);
     })
 </script>
 

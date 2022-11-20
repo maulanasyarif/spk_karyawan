@@ -6,6 +6,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             font-family: "Lato", sans-serif;
@@ -22,15 +25,13 @@
             z-index: 1;
             top: 0;
             left: 0;
-            background-image: linear-gradient(to bottom, #0376c0, #3ba5e9);
+            /* background-image: linear-gradient(to bottom, #0376c0, #3ba5e9); */
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
         }
 
         .sidebar a {
-            /* padding: 8px 8px 8px 8px; */
-            text-decoration: none;
             font-size: 16px;
             color: #000000;
             display: block;
@@ -205,78 +206,55 @@
             -webkit-transition: all .35s ease-in-out;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-
-            document.querySelectorAll('.sidebar .nav-link').forEach(function(element) {
-
-                element.addEventListener('click', function(e) {
-
-                    let nextEl = element.nextElementSibling;
-                    let parentEl = element.parentElement;
-
-                    if (nextEl) {
-                        e.preventDefault();
-                        let mycollapse = new bootstrap.Collapse(nextEl);
-
-                        if (nextEl.classList.contains('show')) {
-                            mycollapse.hide();
-                        } else {
-                            mycollapse.show();
-                            // find other submenus with class=show
-                            var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
-                            // if it exists, then close all of them
-                            if (opened_submenu) {
-                                new bootstrap.Collapse(opened_submenu);
-                            }
-
-                        }
-                    }
-
-                });
-            })
-
-        })
-    </script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-md fixed-top">
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <ul class="nav flex-column" id="nav_accordion">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('dashboard'); ?>">Dashboard </a>
-                </li>
-                <li class="nav-item has-submenu">
-                    <a class="nav-link" href="#">Kriteria <i class="bi small bi-caret-down-fill"></i> </a>
-                    <ul class="submenu collapse">
-                        <li><a class="nav-link" href="<?= base_url('kriteria'); ?>">Kriteria </a></li>
-                        <li><a class="nav-link" href="<?= base_url('sub_kriteria'); ?>">Subkriteria</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item has-submenu">
-                    <a class="nav-link" href="<?= base_url('karyawan'); ?>">Karyawan <i class="bi small bi-caret-down-fill"></i> </a>
-                    <!-- <ul class="submenu collapse"> -->
-                    <!-- <li><a class="nav-link" href="#">Submenu item 4 </a></li>
-                        <li><a class="nav-link" href="#">Submenu item 5 </a></li>
-                        <li><a class="nav-link" href="#">Submenu item 6 </a></li>
-                        <li><a class="nav-link" href="#">Submenu item 7 </a></li>
-                    </ul> -->
-                </li>
-                <li class="nav-item has-submenu">
-                    <a class="nav-link" href="#">Perhitungan <i class="bi small bi-caret-down-fill"></i> </a>
-                    <ul class="submenu collapse">
-                        <li><a class="nav-link" href="#">Alternatif</a></li>
-                        <li><a class="nav-link" href="#">Perbandingan</a></li>
-                        <li><a class="nav-link" href="#">Hasil Perhtungan </a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('logout') ?>"> Logout </a>
-                </li>
-            </ul>
-        </div>
+        <div id="mySidebar" class="sidebar  bg-dark">
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+                <a href="javascript:void(0)" class="closebtn text-white" onclick="closeNav()">×</a>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li>
+                        <a href="<?= base_url('dashboard') ?>" class="nav-link text-white">
+                            <i class="fa-sharp fa-solid fa-gauge"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white btn-kriteria">
+                            <i class="fa-solid fa-list"></i>
+                            Kriteria
+                        </a>
+                        <div class="submenukriteria d-none" style="margin-left: 40px;">
+                            <a href="<?= base_url('kriteria') ?>">Kriteria</a>
+                            <a href="<?= base_url('sub_kriteria') ?>">Subkriteria</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('karyawan') ?>" class="nav-link text-white" style="margin-left:2px;">
+                            <i class="fa-solid fa-person"></i>&nbsp;
+                            Karyawan
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white btn-perhitungan">
+                            <i class="fa-solid fa-calculator"></i>&nbsp;
+                            Perhitungan
+                        </a>
+                        <div class="submenuperhi d-none" style="margin-left: 40px;">
+                            <a href="#">Alternatif</a>
+                            <a href="#">Perbandingan</a>
+                            <a href="#">Hasil Perhitungan</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('logout') ?>" class="nav-link text-white" style="margin-left:2px;">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
     </nav>
 
     <div id="main">
@@ -290,7 +268,6 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).on('click', '.hamburger', function() {
             document.getElementById("mySidebar").style.width = "200px";
@@ -301,6 +278,14 @@
             document.getElementById("mySidebar").style.width = "0";
             document.getElementById("main").style.marginLeft = "0";
         }
+        $('.btn-kriteria').on('click', function() {
+            $('.submenukriteria').removeClass('d-none')
+            $(this).addClass('openkriteria');
+        })
+        $('.btn-perhitungan').on('click', function() {
+            $('.submenuperhi').removeClass('d-none')
+            $(this).addClass('openperhi');
+        })
     </script>
 
 </body>

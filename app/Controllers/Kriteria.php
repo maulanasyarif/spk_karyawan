@@ -5,11 +5,17 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 
 use App\Models\M_Kriteria;
+use App\Models\M_Subkriteria;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\Session\Session;
 
 class Kriteria extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->Subkriteria = new M_Kriteria();
+    }
 
     public function kriteria()
     {
@@ -78,6 +84,12 @@ class Kriteria extends BaseController
             $session->setFlashdata('msg', 'Data Berhasil Diubah');
             return redirect()->to('/kriteria');
         }
+    }
+
+    public function subkriteria($id)
+    {
+        $data['subkriteria'] =  $this->Subkriteria->Subkriteria($id);
+        return view('admin/kriteria/subkriteria', $data);
     }
 
     public function destroy($id)
