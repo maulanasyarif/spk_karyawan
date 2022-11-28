@@ -59,6 +59,11 @@ $routes->get('detil_karyawan/(:any)', 'Karyawan::detil_karyawan/$1', ['filter' =
 $routes->add('update_karyawan/(:any)', 'Karyawan::update/$1', ['filter' => 'auth']);
 $routes->add('destroy_karayawan/(:any)', 'Karyawan::destroy/$1', ['filter' => 'auth']);
 
+$routes->get('alternatif', 'Alternatif::index', ['filter' => 'auth']);
+$routes->get('add_alternatif', 'Alternatif::add', ['filter' => 'auth']);
+$routes->add('create_alternatif', 'Alternatif::create', ['filter' => 'auth']);
+$routes->get('detil_alternatif/(:any)', 'Alternatif::detil/$1', ['filter' => 'auth']);
+$routes->add('update_alternatif/(:any)', 'Alternatif::update/$1', ['filter' => 'auth']);
 //users
 $routes->get('dashboard/users', 'Auth::users', ['filter' => 'auth']);
 

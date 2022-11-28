@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class M_Kriteria extends Model
+class M_AlternatifNilai extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'kriteria';
-    protected $primaryKey       = 'id_kriteria';
+    protected $table            = 'alternatif_nilai';
+    protected $primaryKey       = 'id_alternatif_nilai';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kriteria', 'nama_kriteria', 'bobot_kriteria'];
+    protected $allowedFields    = ['id_alternatif_nilai', 'id_alternatif', 'id_kriteria', 'id_subkriteria', 'id_nilai'];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,13 +39,4 @@ class M_Kriteria extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-
-    public function Subkriteria($id)
-    {
-        return $this->db()->table('kriteria AS K')
-            ->join('subkriteria AS S', 'K.id_kriteria = S.id_kriteria', 'LEFT')
-            ->where('S.id_kriteria', $id)
-            ->get()->getResultArray();
-    }
 }
