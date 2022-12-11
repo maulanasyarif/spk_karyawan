@@ -64,6 +64,10 @@ $routes->get('add_alternatif', 'Alternatif::add', ['filter' => 'auth']);
 $routes->add('create_alternatif', 'Alternatif::create', ['filter' => 'auth']);
 $routes->get('detil_alternatif/(:any)', 'Alternatif::detil/$1', ['filter' => 'auth']);
 $routes->add('update_alternatif/(:any)', 'Alternatif::update/$1', ['filter' => 'auth']);
+
+$routes->get('perbandingan', 'Perbandingan::index', ['filter' => 'auth']);
+$routes->get('matrikutama', 'Perbandingan::getHtml', ['filter' => 'auth']);
+
 //users
 $routes->get('dashboard/users', 'Auth::users', ['filter' => 'auth']);
 

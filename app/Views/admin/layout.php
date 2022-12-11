@@ -243,7 +243,7 @@
                         </a>
                         <div class="submenuperhi d-none" style="margin-left: 40px;">
                             <a href="<?= base_url('alternatif') ?>">Alternatif</a>
-                            <a href="#">Perbandingan</a>
+                            <a href="<?= base_url('perbandingan') ?>">Perbandingan</a>
                             <a href="#">Hasil Perhitungan</a>
                         </div>
                     </li>
